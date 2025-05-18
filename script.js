@@ -1,5 +1,5 @@
 //your JS code here. If required.
-const question = [
+const questions = [
 	{
         question: "Which language runs in a web browser?",
         a: "Java",
@@ -33,3 +33,19 @@ const question = [
         correct: "b",
     }
 ];
+
+let currentQuestionIndex = 0;
+
+function loadQuestion() {
+	const currentQuestion = questions[currentQuestionIndex];
+	document.getElementById('question').innerText =
+		currentQuestion.question;
+	document.getElementById('a_text').innerText = 
+		currentQuestion.a;
+	document.getElementById('b_text').innerText =
+		currentQuestion.b;
+	document.getElementById('c_text').innerText =
+		currentQuestion.c;
+	document.getElementById('d_text').innerText =
+		currentQuestion.d;
+}
