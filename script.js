@@ -35,6 +35,7 @@ const questions = [
 ];
 
 let currentQuestionIndex = 0;
+let score = 0;
 
 function loadQuestion() {
 	const currentQuestion = questions[currentQuestionIndex];
@@ -48,4 +49,29 @@ function loadQuestion() {
 		currentQuestion.c;
 	document.getElementById('d_text').innerText =
 		currentQuestion.d;
+}
+
+document.getElementById('submit').addEventListener('click', ()=>{
+	const answer = document.querySelector('input[name="answer"]:checked');
+	if(answer){
+		const selectedAnswer = answer.id;
+		if(selectedAnswer === questions[currentQuestionIndex].correct){
+			score++;
+		}
+		currentQuestionIndex++;
+		if(currentQuestionIndex < questions.length){
+			loadQuestion();
+		}else{
+			
+		}
+	}else{
+		alert("Please select an answer befor submitting.");
+	}
+});
+function showResults() {
+	
+}
+function reloadQuiz() {
+	currentQuestionIndex = 0;
+	loadQuestion();
 }
